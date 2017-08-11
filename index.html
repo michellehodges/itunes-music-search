@@ -7,17 +7,33 @@
 <body>
   <div class="container">
     <header>
-      <h1>Really Awesome Music Site</h1>
+      <h1 class="main-header">Really Awesome Music Site</h1>
     </header>
     <section class="player">
       <audio class="music-player" controls="controls" src=""></audio>
+      <!-- <span>Now Playing: ${artist-name} - ${song-name} </span> -->
     </section>
+
+  <hr>
+
     <section class="search">
       <form class="search-form">
-        
+        <input type="text" class="search-box" placeholder="Search for Artist"></input>
+        <button type="submit" class="search-button" value="submit">Search</button>
       </form>
     </section>
-    <section class="results"></section>
+
+  <hr>
+
+    <section class="results">
+      <!-- <h1>Search Results:</h1> -->
+      <!-- <div class="search-result">
+        <img src="http://1.bp.blogspot.com/-4x8LvBUopUg/UP_3v-hRgcI/AAAAAAAAC90/rerm6FhEJ4I/s1600/Anthony+Lamb+-+Nick+Cage+as+Salvador+Dali.jpg" class="search-image">
+        <span>${song-name}</span>
+        <span>${artist-name}</span>
+      </div> -->
+    </section>
+
   </div>
   <script src="main.js"></script>
 </body>

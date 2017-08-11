@@ -1,9 +1,65 @@
-/*
-  Here is a rough idea for the steps you could take:
-*/
+//ON CLICK OF "SEARCH"
+let searchButton = document.querySelector(".search-button");
+searchButton.addEventListener('click', function() {
+  console.log("searchButton is working");
+  fetchSearchedItem();
+})
 
-// 1. First select and store the elements you'll be working with
-// 2. Create your `submit` event for getting the user's search term
-// 3. Create your `fetch` request that is called after a submission
-// 4. Create a way to append the fetch results to your page
-// 5. Create a way to listen for a click that will play the song in the audio play
+//ON CLICK OF "PLAY SONG", play the preview of the URL that was clicked. Assign the value of that URL to the audio class music player.
+let playButton = document.querySelector(".play-now");
+playButton.addEventListener('click', function() {
+  console.log("playButton is working!");
+  playSong();
+})
+
+//GLOBAL FUNCTIONS HERE
+function convertToJson(songs) {
+  console.log("convertToJson is working")
+  return songs.json();
+}
+
+function returnSongs(songs) {
+  console.log("returnSongs is twerking!")
+  let htmlInsertionAtContainer = '';
+  let htmlInsertionAtPlayer = '';
+  let songsContainer = document.querySelector(".results");
+  let songPlayer = document.querySelector(".player");
+
+  htmlInsertionAtPlayer += `
+  <audio class="music-player" controls="controls" src="${previewUrl}" controls autoplay></audio>
+  <span>Now Playing: ${artistName} - ${trackName} </span>
+  `
+
+  for (j = 0; j < songs.results.length; j++ ) {
+    let song = songs.results[j];
+    htmlInsertionAtContainer += `
+    <h1>Search Results:</h1>
+    <div class="search-result">
+      <img src=${songs.results[j].artworkUrl60} class="search-image">
+      <span>${songs.results[j].trackName}</span>
+      <span>${songs.results[j].artistName}</span>
+      <button type="button" class="play-now" value=${previewUrl}>Play Now</button>
+    </div>
+      `;
+  }
+
+    songsContainer.innerHTML = htmlInsertionAtContainer;
+    songPlayer.innerHTML = htmlInsertionAtPlayer;
+    console.log(songs);
+  }
+
+function fetchSearchedItem(){
+  console.log("fetchSearchedItem is working")
+  let searchedItem = document.querySelector(".search-box");
+  fetch(`
+    https://itunes.apple.com/search?term=${searchedItem.value}&limit=25
+    `)
+    .then(convertToJson)
+    .then(returnSongs);
+}
+
+function playSong(song) {
+  When the play song button is clicked,
+  assign the value of previewURL to audio class music
+  then automatically play the song.
+}
