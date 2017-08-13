@@ -56,3 +56,19 @@ body {
   border-radius: 5px;
   height: 45px;
 }
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 52px;
+  margin-right: 52px;
+}
+
+
+.search-results-header {
+  text-transform: uppercase;
+  font-family: 'Zilla Slab Highlight', cursive;
+  font-size: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+}
