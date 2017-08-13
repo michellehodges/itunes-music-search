@@ -1,17 +1,14 @@
 let searchButton = document.querySelector(".search-button");
 searchButton.addEventListener('click', function(ev) {
   ev.preventDefault();
-  console.log("searchButton is working");
   fetchSearchedItem();
 })
 
 function convertToJson(songs) {
-  console.log("convertToJson is working")
   return songs.json();
 }
 
 function returnSongs(songs) {
-  console.log("returnSongs is twerking!")
   let htmlInsertionAtContainer = '';
   let songsContainer = document.querySelector(".results");
 
@@ -28,14 +25,12 @@ function returnSongs(songs) {
     </div>
       `;
   }
-
     songsContainer.innerHTML = htmlInsertionAtContainer;
-  }
+}
 
 function playSong(trackName,artistName,previewUrl) {
   let songPlayer = document.querySelector(".player");
   let htmlInsertionAtPlayer = '';
-  console.log("playButton is working!");
   htmlInsertionAtPlayer += `
   <audio class="music-player" controls="controls" src="${previewUrl}" autoplay controls></audio>
   <span>Now Playing: ${artistName} - ${trackName} </span>
@@ -44,7 +39,6 @@ function playSong(trackName,artistName,previewUrl) {
 }
 
 function fetchSearchedItem(){
-  console.log("fetchSearchedItem is working")
   let searchedItem = document.querySelector(".search-box");
   let urlEncodedSearchedItem = encodeURIComponent(searchedItem.value);
   fetch(`
