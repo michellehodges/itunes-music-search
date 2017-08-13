@@ -18,7 +18,7 @@ function returnSongs(songs) {
     htmlInsertionAtContainer += `
     <div class="search-result"
       style="
-        height: 200px;
+        height: 250px;
         width: 200px;
         text-align: center;
         font-family: 'Arvo', serif;
@@ -44,7 +44,7 @@ function playSong(trackName,artistName,previewUrl) {
     style="
       font-family: 'Arvo', serif;
       font-size: 15px;
-      padding-left: 70px;
+      margin-left: 5%;
   ">
     Now Playing: ${artistName} - ${trackName} </span>
   `
