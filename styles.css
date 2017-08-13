@@ -1,8 +1,58 @@
+/*font-family: 'Indie Flower', cursive;
+font-family: 'Arvo', serif;
+font-family: 'Zilla Slab Highlight', cursive;*/
+
 body {
-  background-color: #60d9f1;
+  background-color: #f9d3a0;
+}
+
+.now-playing {
+  font-family: 'Arvo', serif;
+  font-size: 15px;
+  padding-left: 69px;
 }
 
 .main-header {
   text-transform: uppercase;
-  font-family: Verdana; 
+  font-family: 'Zilla Slab Highlight', cursive;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.music-player {
+  width: 90%;
+  display: table;
+  margin: 15px auto;
+  border: 2px solid grey;
+}
+
+
+.search-form {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+
+.search-box, ::placeholder, .search-button {
+  font-family: 'Arvo', serif;
+  font-size: 15px;
+}
+
+.search-box {
+  width: 60%;
+  margin: 40px auto;
+  border: 2px solid grey;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  margin: 10px;
+}
+
+.search-button {
+  width: 20%;
+  margin: auto 0;
+  border: 2px solid grey;
+  border-radius: 5px;
+  height: 45px;
 }

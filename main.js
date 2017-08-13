@@ -1,15 +1,9 @@
 //ON CLICK OF "SEARCH"
 let searchButton = document.querySelector(".search-button");
-searchButton.addEventListener('click', function() {
+searchButton.addEventListener('click', function(ev) {
+  ev.preventDefault();
   console.log("searchButton is working");
   fetchSearchedItem();
-})
-
-//ON CLICK OF "PLAY SONG", play the preview of the URL that was clicked. Assign the value of that URL to the audio class music player.
-let playButton = document.querySelector(".play-now");
-playButton.addEventListener('click', function() {
-  console.log("playButton is working!");
-  playSong();
 })
 
 //GLOBAL FUNCTIONS HERE
@@ -51,15 +45,24 @@ function returnSongs(songs) {
 function fetchSearchedItem(){
   console.log("fetchSearchedItem is working")
   let searchedItem = document.querySelector(".search-box");
+  let urlEncodedSearchedItem = encodeURIComponent(searchedItem);
   fetch(`
-    https://itunes.apple.com/search?term=${searchedItem.value}&limit=25
+    https://itunes.apple.com/search?term=${urlEncodedSearchedItem.value}&limit=25&country=US
     `)
     .then(convertToJson)
     .then(returnSongs);
 }
 
 function playSong(song) {
-  When the play song button is clicked,
-  assign the value of previewURL to audio class music
-  then automatically play the song.
+  // When the play song button is clicked,
+  // assign the value of previewURL to audio class music
+  // then automatically play the song.
+  console.log("playButton is working!");
 }
+
+//ON CLICK OF "PLAY SONG", play the preview of the URL that was clicked. Assign the value of that URL to the audio class music player.
+let playButton = document.querySelector(".play-now");
+playButton.addEventListener('click', function() {
+  console.log("playButton is working!");
+  playSong();
+})
